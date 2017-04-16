@@ -11,8 +11,8 @@ public class DroolsSpringTest {
 
     public static void main(String args[]) {
 
-        final int CLIENTS_COUNT = 100;
-        final int SUBSCRIBERS_COUNT = 100;
+        final int CLIENTS_COUNT = 5;
+        final int SUBSCRIBERS_COUNT = 3;
 
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext("by.intexsoft.vasili.drools.config");
         ClientService clientService = ((ClientService) applicationContext.getBean("ClientService"));
@@ -27,6 +27,13 @@ public class DroolsSpringTest {
         long startTime = System.currentTimeMillis();
         clientService.processClients(clients);
         System.out.println((System.currentTimeMillis() - startTime) + " ms");
+
+//        Client client = clients.get(1);
+//        System.out.println("Client to save: " + client);
+//        clientService.save(client);
+
+//        clientService.deleteAll();
+
 
 //        System.out.println("\nAfter drools");
 //        clients.forEach(printerService::print);

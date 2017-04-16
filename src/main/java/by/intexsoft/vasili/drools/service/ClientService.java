@@ -10,5 +10,8 @@ public interface ClientService {
 
     List<Client> getClients(int clientsCount, int subsInClientCount);
 
-    Client saveToDB(Client client);
+    Client save(Client client);
+
+    void deleteAll();
+
 }

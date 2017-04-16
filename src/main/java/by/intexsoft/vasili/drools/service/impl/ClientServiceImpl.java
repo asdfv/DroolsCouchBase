@@ -48,7 +48,7 @@ public class ClientServiceImpl implements ClientService {
 
         // Create clients
         for (int index = 0; index < clientsCount; index++) {
-            clients.add(new Client(getRandomInt()));
+            clients.add(new Client(String.valueOf(getRandomInt())));
         }
         // Create subscribers for each client
         for (int index = 0; index < subsInClientCount; index++) {
@@ -57,13 +57,17 @@ public class ClientServiceImpl implements ClientService {
         return clients;
     }
 
+    @Override
+    public void deleteAll() {
+        clientRepository.deleteAll();
+    }
+
     /**
      * Save {@link Client} to DB
      * @param client - client to save
      * @return saved {@link Client}
      */
-    @Override
-    public Client saveToDB(Client client) {
+    public Client save(Client client) {
         return clientRepository.save(client);
     }
 
@@ -71,4 +75,5 @@ public class ClientServiceImpl implements ClientService {
         Random random = new Random();
         return random.nextInt(9999);
     }
+
 }

@@ -1,5 +1,6 @@
 package by.intexsoft.vasili.drools.config;
 
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.couchbase.config.AbstractCouchbaseConfiguration;
 import org.springframework.data.couchbase.repository.config.EnableCouchbaseRepositories;
@@ -9,6 +10,7 @@ import java.util.List;
 
 @Configuration
 @EnableCouchbaseRepositories("by.intexsoft.vasili.drools.repository")
+@ComponentScan("by.intexsoft.vasili.drools.model")
 public class CouchConfig extends AbstractCouchbaseConfiguration {
 
     @Override
@@ -18,11 +20,11 @@ public class CouchConfig extends AbstractCouchbaseConfiguration {
 
     @Override
     protected String getBucketName() {
-        return "default";
+        return "client";
     }
 
     @Override
     protected String getBucketPassword() {
-        return "";
+        return "password";
     }
 }
