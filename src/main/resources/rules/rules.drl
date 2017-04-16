@@ -1,0 +1,35 @@
+package rules
+
+import by.intexsoft.vasili.drools.model.Client;
+import by.intexsoft.vasili.drools.model.Subscriber;
+
+global by.intexsoft.vasili.drools.service.PrinterService printer;
+
+
+rule "Insert in working memory subscribers"
+salience 100
+when
+    $client: Client()
+    $item: Subscriber() from $client.subscribers
+then
+    insert($item);
+end
+
+rule "Calculate how much spent subscribers for each client"
+salience 10
+when
+    $client: Client()
+    $total: Number() from accumulate (Subscriber(manager == $client, $spent: spent), sum($spent))
+then
+    $client.subsSpentTotal = $total.intValue();
+end
+
+
+//rule "Test rule"
+//salience 10
+//when
+//    $client: Client()
+//    $total : Number() from accumulate ( Subscriber($client == manager, $spent : spent), sum( $spent ) )
+//then
+//    printer.print($client);
+//end
