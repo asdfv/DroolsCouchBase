@@ -21,7 +21,7 @@ when
     $client: Client()
     $total: Number() from accumulate (Subscriber(manager == $client, $spent: spent), sum($spent))
 then
-    $client.subsSpentTotal = $total.intValue();
+    $client.setSubsSpentTotal($total.intValue());
 end
 
 

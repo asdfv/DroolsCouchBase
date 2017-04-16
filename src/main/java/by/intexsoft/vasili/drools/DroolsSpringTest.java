@@ -28,9 +28,9 @@ public class DroolsSpringTest {
         clientService.processClients(clients);
         System.out.println((System.currentTimeMillis() - startTime) + " ms");
 
-//        Client client = clients.get(1);
-//        System.out.println("Client to save: " + client);
-//        clientService.save(client);
+        Client client = clients.get(1);
+        System.out.println("Client to save: " + client);
+        clientService.save(client);
 
 //        clientService.deleteAll();
 

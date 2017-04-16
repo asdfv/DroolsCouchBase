@@ -1,10 +1,9 @@
 package by.intexsoft.vasili.drools.model;
 
-
 public class Subscriber {
-    public int id;
-    public int spent;
-    public Client manager;
+    private int id;
+    private int spent;
+    private Client manager;
 
     public Subscriber(int id, int spent, Client client) {
         this.id = id;
@@ -29,7 +28,7 @@ public class Subscriber {
         return "Subscriber{" +
                 "id=" + id +
                 ", spent=" + spent +
-                ", clientId=" + manager.id +
+                ", clientId=" + manager.getId() +
                 '}';
     }
 }
